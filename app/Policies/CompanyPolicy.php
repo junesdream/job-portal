@@ -13,7 +13,7 @@ class CompanyPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->role === 'Admin' || $user->role === 'Employer';
     }
 
     /**
@@ -21,7 +21,7 @@ class CompanyPolicy
      */
     public function view(User $user, Company $company): bool
     {
-        //
+        return $user->role === 'Admin' || $user->role === 'Employer';
     }
 
     /**
@@ -29,7 +29,7 @@ class CompanyPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->role === 'Admin';
     }
 
     /**
@@ -37,7 +37,7 @@ class CompanyPolicy
      */
     public function update(User $user, Company $company): bool
     {
-        //
+        return $user->role === 'Admin' || ($user->role === 'Employer' && $company->user_id === $user->id);
     }
 
     /**
@@ -45,22 +45,22 @@ class CompanyPolicy
      */
     public function delete(User $user, Company $company): bool
     {
-        //
+        return $user->role === 'Admin';
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Company $company): bool
-    {
-        //
-    }
+    // public function restore(User $user, Company $company): bool
+    // {
+        
+    // }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Company $company): bool
-    {
-        //
-    }
+    // public function forceDelete(User $user, Company $company): bool
+    // {
+        
+    // }
 }

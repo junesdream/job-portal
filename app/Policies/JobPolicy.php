@@ -13,7 +13,7 @@ class JobPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+         return $user->role === 'Admin' || $user->role === 'Employer' || $user->role === 'User';
     }
 
     /**
@@ -21,7 +21,8 @@ class JobPolicy
      */
     public function view(User $user, Job $job): bool
     {
-        //
+        //return $user->role === 'Admin' || $user->role === 'Employer' || $user->role === 'User';
+    
     }
 
     /**
@@ -29,7 +30,7 @@ class JobPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->role === 'Admin' || $user->role === 'Employer';
     }
 
     /**
@@ -37,7 +38,8 @@ class JobPolicy
      */
     public function update(User $user, Job $job): bool
     {
-        //
+         return $user->role === 'Admin' || ($user->role === 'Employer' && $job->company->user_id === $user->id);
+    
     }
 
     /**
@@ -45,7 +47,7 @@ class JobPolicy
      */
     public function delete(User $user, Job $job): bool
     {
-        //
+        return $user->role === 'Admin';
     }
 
     /**
