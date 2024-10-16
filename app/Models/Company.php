@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
-    public function jobs()
-{
-    return $this->hasMany(Job::class);
-}
+    use HasFactory;
+    protected $fillable = ['name', 'description', 'location', 'industry', 'founded_at', 'website'];
 }

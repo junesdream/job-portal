@@ -13,22 +13,7 @@ class CompanySeeder extends Seeder
      */
     public function run(): void
     {
-    Company::create([
-            'name' => 'TechCorp',
-            'description' => 'A leading tech company',
-            'location' => 'Berlin',
-            'industry' => 'Technology',
-            'founded_at' => '2010-01-01',
-            'website' => 'https://techcorp.com',
-        ]);
-
-        Company::create([
-            'name' => 'FinTech Solutions',
-            'description' => 'Financial technology services',
-            'location' => 'Hamburg',
-            'industry' => 'Finance',
-            'founded_at' => '2015-05-05',
-            'website' => 'https://fintech.com',
-        ]);
+        //Create 5 Compynies
+        Company::factory()->count(5)->create();
     }
 }

@@ -13,14 +13,7 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create([
-            'name' => 'Software Development',
-            'description' => 'Jobs related to software engineering and development',
-        ]);
-
-        Category::create([
-            'name' => 'Product Management',
-            'description' => 'Jobs related to product lifecycle and management',
-        ]);
+        //Create 5 Categories
+       Category::factory()->count(5)->create();
     }
 }
