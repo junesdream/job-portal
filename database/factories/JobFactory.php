@@ -24,6 +24,7 @@ class JobFactory extends Factory
             'location' => $this->faker->city,
             'company_id' => \App\Models\Company::factory(),
             'category_id' => \App\Models\Category::factory(),
+            'posted_at' => now(),
         ];
     }
 }

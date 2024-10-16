@@ -8,7 +8,7 @@
 
     <ul>
         @foreach ($categories as $category)
-            <li>{{ $category->name }} - {{ $category->description }}</li>
+            <li>{{ $category->name }} - {{ $category->description }} - {{ $category->created_at->format('d.m.Y') }} </li>
         @endforeach
     </ul>
 </body>

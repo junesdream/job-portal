@@ -8,7 +8,9 @@
 
     <ul>
         @foreach ($companies as $company)
-            <li>{{ $company->name }} - {{ $company->location }} - {{ $company->industry }}</li>
+            <li>{{ $company->name }} - {{ $company->location }} - {{ $company->industry }} - Gegründet: {{ $company->founded_at }} - 
+        Webseite: <a href="{{ $company->website }}">{{ $company->website }}</a>
+   </li>
         @endforeach
     </ul>
 </body>

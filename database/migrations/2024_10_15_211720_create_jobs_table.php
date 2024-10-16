@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('location');
             $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
-            $table->timestamp('posted_at');
+            $table->timestamp('posted_at')->nullable();
             $table->timestamps();
         });
     }
