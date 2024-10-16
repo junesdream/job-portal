@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
 
 class CategorySeeder extends Seeder
 {
@@ -12,6 +13,14 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Category::create([
+            'name' => 'Software Development',
+            'description' => 'Jobs related to software engineering and development',
+        ]);
+
+        Category::create([
+            'name' => 'Product Management',
+            'description' => 'Jobs related to product lifecycle and management',
+        ]);
     }
 }
