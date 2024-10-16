@@ -13,7 +13,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        $jobs = Job::all();
+        return view('jobs.index', compact('jobs'));
     }
 
     /**
@@ -21,7 +22,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('jobs.create');
     }
 
     /**
@@ -29,7 +30,18 @@ class JobController extends Controller
      */
     public function store(StoreJobRequest $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'salary' => 'required|numeric',
+            'location' => 'required',
+            'company_id' => 'required|exists:companies,id',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        Job::create($validated);
+        return redirect()->route('jobs.index')->with('success', 'Job created successfully.');
+    
     }
 
     /**
@@ -37,7 +49,7 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        //
+        return view('jobs.show', compact('job'));
     }
 
     /**
@@ -45,7 +57,7 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
-        //
+        return view('jobs.edit', compact('job'));
     }
 
     /**
@@ -53,7 +65,18 @@ class JobController extends Controller
      */
     public function update(UpdateJobRequest $request, Job $job)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'salary' => 'required|numeric',
+            'location' => 'required',
+            'company_id' => 'required|exists:companies,id',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        $job->update($validated);
+        return redirect()->route('jobs.index')->with('success', 'Job updated successfully.');
+    
     }
 
     /**
@@ -61,6 +84,8 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        //
+        $job->delete();
+        return redirect()->route('jobs.index')->with('success', 'Job deleted successfully.');
+    
     }
 }

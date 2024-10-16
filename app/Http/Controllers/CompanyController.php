@@ -13,7 +13,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::all();
+        return view('companies.index', compact('companies'));
     }
 
     /**
@@ -21,7 +22,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
     }
 
     /**
@@ -29,7 +30,18 @@ class CompanyController extends Controller
      */
     public function store(StoreCompanyRequest $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'location' => 'required',
+            'industry' => 'required',
+            'founded_at' => 'required|date',
+            'website' => 'required|url',
+        ]);
+
+        Company::create($validated);
+        return redirect()->route('companies.index')->with('success', 'Company created successfully.');
+   
     }
 
     /**
@@ -37,7 +49,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return view('companies.show', compact('company'));
     }
 
     /**
@@ -45,7 +57,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('companies.edit', compact('company'));
     }
 
     /**
@@ -53,7 +65,17 @@ class CompanyController extends Controller
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'location' => 'required',
+            'industry' => 'required',
+            'founded_at' => 'required|date',
+            'website' => 'required|url',
+        ]);
+
+        $company->update($validated);
+        return redirect()->route('companies.index')->with('success', 'Company updated successfully.');
     }
 
     /**
@@ -61,6 +83,8 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+         $company->delete();
+        return redirect()->route('companies.index')->with('success', 'Company deleted successfully.');
+    
     }
 }
