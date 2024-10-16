@@ -13,3 +13,6 @@ Route::get('/', function () {
 Route::resource('jobs', JobController::class);
 Route::resource('companies', CompanyController::class);
 Route::resource('categories', CategoryController::class);
+Route::get('/jobs/{job}', [JobController::class, 'show'])->name('jobs.show');
+Route::get('/companys/{company}', [CompanyController::class, 'show'])->name('companys.show');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categoriess.show');
