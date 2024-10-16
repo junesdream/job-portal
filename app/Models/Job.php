@@ -21,8 +21,9 @@ class Job extends Model
         'location',
         'company_id',
         'category_id',
+        'posted_at',
     ];
-    
+      
     // Define the relation to Company-Modell
     public function company()
     {
