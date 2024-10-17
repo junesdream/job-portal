@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
 use App\Models\Job;
+use App\Models\Company;
+use App\Models\Category;
 
 class JobController extends Controller
 {
@@ -50,19 +52,22 @@ class JobController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Job $job)
+     public function show(Job $job)
     {
-        return view('jobs.show', compact('job'));
+        $companies = Company::all();
+        $categories = Category::all();
+        return view('jobs.show', compact('job', 'companies', 'categories'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Job $job)
-    {
-        return view('jobs.edit', compact('job'));
-    }
-
+{
+    $companies = Company::all();
+    $categories = Category::all();
+    return view('jobs.edit', compact('job', 'companies', 'categories'));
+}
     /**
      * Update the specified resource in storage.
      */

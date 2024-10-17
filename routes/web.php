@@ -14,6 +14,8 @@ Route::resource('jobs', JobController::class);
 Route::resource('companies', CompanyController::class);
 Route::resource('categories', CategoryController::class);
 Route::get('/jobs/{job}', [JobController::class, 'show'])->name('jobs.show');
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->name('jobs.edit');
+
 Route::get('/companies/{company}', [CompanyController::class, 'show'])->name('companies.show');
 Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');

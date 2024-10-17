@@ -27,12 +27,6 @@
         label {
             margin-top: 10px;
         }
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -80,10 +74,7 @@
                 </select>
             </div>
 
-            <div class="button-group">
-                <button type="submit" class="btn btn-primary">Update Job</button>
-                <a href="{{ route('jobs.show', $job->id) }}" class="btn btn-secondary">Delete</a>
-            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Update Job</button>
         </form>
     </div>
     <!-- Bootstrap JS und Popper.js einbinden -->
