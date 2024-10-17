@@ -1,5 +1,3 @@
-<!-- resources/views/jobs/index.blade.php -->
-
 <!DOCTYPE html>
 <html>
 <head>

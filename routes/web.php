@@ -14,5 +14,14 @@ Route::resource('jobs', JobController::class);
 Route::resource('companies', CompanyController::class);
 Route::resource('categories', CategoryController::class);
 Route::get('/jobs/{job}', [JobController::class, 'show'])->name('jobs.show');
-Route::get('/companys/{company}', [CompanyController::class, 'show'])->name('companys.show');
-Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categoriess.show');
+Route::get('/companies/{company}', [CompanyController::class, 'show'])->name('companies.show');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
+//Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
+Route::post('/jobs', [JobController::class, 'store']);
+
+
+Route::get('/login', function () {
+    return view('auth.login'); 
+})->name('login');

@@ -21,7 +21,7 @@ class JobPolicy
      */
     public function view(User $user, Job $job): bool
     {
-        //return $user->role === 'Admin' || $user->role === 'Employer' || $user->role === 'User';
+        return $user->role === 'Admin' || $user->role === 'Employer' || $user->role === 'User';
     
     }
 

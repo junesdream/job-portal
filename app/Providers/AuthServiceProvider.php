@@ -4,6 +4,12 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider; 
 use Illuminate\Support\Facades\Gate;
+use App\Models\Job;
+use App\Models\Company;
+use App\Models\Category;
+use App\Policies\JobPolicy;
+use App\Policies\CompanyPolicy;
+use App\Policies\CategoryPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,9 +19,9 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        App\Models\Job::class => App\Policies\JobPolicy::class,
-        App\Models\Company::class => App\Policies\CompanyPolicy::class,
-        App\Models\Category::class => App\Policies\CategoryPolicy::class,
+        \App\Models\Job::class => \App\Policies\JobPolicy::class,
+        Company::class => CompanyPolicy::class,
+        Category::class => CategoryPolicy::class,
     ];
 
     /**

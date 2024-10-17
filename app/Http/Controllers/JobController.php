@@ -22,28 +22,31 @@ class JobController extends Controller
      */
     public function create()
     {
-        return view('jobs.create');
+        $companies = \App\Models\Company::all();
+        $categories = \App\Models\Category::all();
+        return view('jobs.create', compact('companies', 'categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreJobRequest $request)
-    {
-        $validated = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'salary' => 'required|numeric',
-            'location' => 'required',
-            'company_id' => 'required|exists:companies,id',
-            'category_id' => 'required|exists:categories,id',
-        ]);
+{
 
-        Job::create($validated);
-        return redirect()->route('jobs.index')->with('success', 'Job created successfully.');
-    
-    }
+   // $this->authorize('create', Job::class);
 
+    $validated = $request->validate([
+        'title' => 'required',
+        'description' => 'required',
+        'salary' => 'required|numeric',
+        'location' => 'required',
+        'company_id' => 'required|exists:companies,id',
+        'category_id' => 'required|exists:categories,id',
+    ]);
+
+    $job =Job::create($validated);
+    return redirect()->route('jobs.index')->with('success', 'Job wurde erfolgreich erstellt!');
+}
     /**
      * Display the specified resource.
      */
@@ -76,7 +79,7 @@ class JobController extends Controller
 
         $job->update($validated);
         return redirect()->route('jobs.index')->with('success', 'Job updated successfully.');
-    
+
     }
 
     /**
