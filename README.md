@@ -1,98 +1,105 @@
 # Jobportal
 
-Dies ist ein Jobportal-Projekt, das mit Laravel im Backend und HTML/CSS sowie UI mit Bootstrap im Frontend entwickelt. Das Projekt bietet Funktionen für Benutzer zum Anzeigen, Erstellen und Verwalten sowie Löschen von Jobs sowie zum Verwalten von Unternehmen und Jobkategorien.
+This is a Job Portal project developed with Laravel in the backend and HTML/CSS with UI using Bootstrap in the frontend. The project provides features for users to view, create, manage, and delete jobs, as well as manage companies and job categories.
 
-## Funktionen
+## Features
 
-- Anzeigen von Jobalist und Erstellen, Bearbeiten inkl. Löschen von Stellenanzeigen.
-- Zuweisen von Stellenanzeigen zu bestimmten Unternehmen und Kategorien.
-- Benutzerrollenverwaltung: Admin, Arbeitgeber, Benutzer.
-- Authentifizierungssystem für eingeschränkte Aktionen.
-- RESTful-Resource-Controller zur Verwaltung von Jobs, Unternehmen und Kategorien.
+-   View job listings, create, edit, and delete job postings.
+-   Assign job postings to specific companies and categories.
+-   User role management: Admin, Employer, User.
+-   Authentication system for restricted actions.
+-   RESTful resource controllers for managing jobs, companies, and categories.
 
 ## Voraussetzungen
 
-- PHP >= 8.2
-- Composer
-- Node.js & npm
-- Laravel 11.9
-- SQLite/MySQL (oder eine andere unterstützte Datenbank)
+-   PHP >= 8.2
+-   Composer
+-   Node.js & npm
+-   Laravel 11.9
+-   SQLite/MySQL (or another supported database))
 
 ## Installation
 
-1. Klone das Repository:
-   ```bash
-   git clone https://github.com/junesdream/job-portal.git
-   cd job-portal
-   ```
+1. Clone the repository::
 
-2. Installiere die Abhängigkeiten:
-   ```bash
-   composer install
-   npm install
-   ```
+    ```bash
+    git clone https://github.com/junesdream/job-portal.git
+    cd job-portal
+    ```
 
-3. Erstelle die `.env`-Konfigurationsdatei:
-   ```bash
-   cp .env.example .env
-   ```
+2. Install dependencies:
 
-4. Generiere den Anwendungsschlüssel:
-   ```bash
-   php artisan key:generate
-   ```
+    ```bash
+    composer install
+    npm install
+    ```
 
-5. Richte die Datenbank ein:
-   - Aktualisiere die `.env`-Datei mit deiner Datenbankkonfiguration.
-   - Führe die Migrationen aus und fülle die Datenbank mit Seed-Daten:
-     ```bash
-     php artisan migrate --seed
-     ```
+3. Create the .env configuration file:
 
-6. Starte den lokalen Entwicklungsserver:
-   ```bash
-   php artisan serve
-   ```
+    ```bash
+    cp .env.example .env
+    ```
 
-## Verwendung
+4. Generiere the application key:
 
-- Besuche `http://127.0.0.1:8000` in deinem Browser.
-- Du kannst dich mit den Standard-Admin-Anmeldedaten einloggen, die vom Seeder erstellt wurden, oder einen neuen Benutzer registrieren.
-- Admin- und Arbeitgeberrollen können Stellenanzeigen erstellen und verwalten.
-- Benutzer können Stellenanzeigen anzeigen.
+    ```bash
+    php artisan key:generate
+    ```
 
-## Tests ausführen
+5. Set up the database:
 
-Um die Tests für diese Anwendung auszuführen:
+    - Update the .env file with your database configuration..
+    - Run the migrations and seed the database:
+        ```bash
+        php artisan migrate --seed
+        ```
+
+6. Start the local development server:
+    ```bash
+    php artisan serve
+    ```
+
+## Usage
+
+-   Visit http://127.0.0.1:8000 in your browser.
+-   You can log in using the default admin credentials created by the seeder or register a new user.
+-   Admin and employer roles can create and manage job postings.
+-   Users can view job postings
+
+## Runnig Tests
+
+To run the tests for this application:
+
 ```bash
 php artisan test
 ```
 
-## Entwicklungstools
+## Development Tools
 
-Das Projekt verwendet zusätzliche Tools zur Unterstützung der Entwicklung:
+The project uses additional tools to assist development:
 
-- **Laravel Pint** für Code-Styling und Linting:
-  ```bash
-  vendor/bin/pint
-  ```
-- **Laravel Sail** für das Ausführen der Anwendung in einer Docker-Umgebung:
-  ```bash
-  ./vendor/bin/sail up
-  ```
-- **Laravel Pail** für die Echtzeit-Protokollanzeige während der Entwicklung.
+-   \*\*Laravel Pint for code styling and linting:
+    ```bash
+    vendor/bin/pint
+    ```
+-   \*\*Laravel Sail to run the application in a Docker environment:
+    ```bash
+    ./vendor/bin/sail up
+    ```
+-   \*\*Laravel Pail for real-time log viewing during development.
 
-Um die lokale Entwicklungsumgebung mit mehreren Diensten zu starten:
+To start the local development environment with multiple services:
+
 ```bash
 composer run dev
 ```
 
-## Fehlerbehebung
+## Troubleshooting
 
-- **403 Unauthorized**: Stelle sicher, dass der Benutzer die richtige Rolle hat, um die Aktion auszuführen.
-- **Datenbankprobleme**: Stelle sicher, dass die Migrationen ausgeführt wurden und die Tabellen in deiner Datenbank vorhanden sind.
-- **Anmeldeprobleme**: Überprüfe die Benutzerrollen und Berechtigungen.
+-   **403 Unauthorized**: Stelle sicher, dass der Benutzer die richtige Rolle hat, um die Aktion auszuführen.
+-   \*\*Database issues: Make sure migrations have been run and tables exist in your database.
+-   \*\*Login problems: Check user roles and permissions.
 
 ## Lizenz
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert. Siehe die [LICENSE](LICENSE)-Datei für Details.
+This project is licensed under the MIT License. See the LICENSE file for
