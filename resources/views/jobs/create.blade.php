@@ -64,7 +64,7 @@
         <div>
             <label for="company_id">Company:</label>
             <select id="company_id" name="company_id" required>
-                <option value="">Bitte wählen...</option>
+                <option value="">Please choose...</option>
                 @foreach($companies as $company)
                     <option value="{{ $company->id }}">{{ $company->name }}</option>
                 @endforeach
@@ -78,7 +78,7 @@
                 @endforeach
             </select>
         </div>
-    <button type="submit">Job erstellen</button>
+    <button type="submit">Create Job</button>
 </form>
 </body>
 </html>

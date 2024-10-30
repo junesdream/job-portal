@@ -1,23 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $company->name }}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>{{ $company->name }}</h1>
+    <div class="container mt-5">
+        <h1>{{ $company->name }}</h1>
 
-    <p>{{ $company->description }}</p>
+        <p>{{ $company->description }}</p>
 
-    <h2>Location</h2>
-    <p>{{ $company->location }}</p>
+        <table class="table table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <th>Location</th>
+                    <td>{{ $company->location }}</td>
+                </tr>
+                <tr>
+                    <th>Industry</th>
+                    <td>{{ $company->industry }}</td>
+                </tr>
+                <tr>
+                    <th>Founded</th>
+                    <td>{{ $company->founded_at }}</td>
+                </tr>
+                <tr>
+                    <th>Website</th>
+                    <td><a href="{{ $company->website }}">{{ $company->website }}</a></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <h2>Industry</h2>
-    <p>{{ $company->industry }}</p>
+        <div class="mt-3">
+            <a href="{{ route('companies.edit', $company->id) }}" class="btn btn-primary">Edit</a>
+            <form action="{{ route('companies.destroy', $company->id) }}" method="POST" class="d-inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
 
-    <h2>Founded</h2>
-    <p>{{ $company->founded_at }}</p>
-
-    <h2>Website</h2>
-    <p><a href="{{ $company->website }}">{{ $company->website }}</a></p>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

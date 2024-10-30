@@ -5,10 +5,9 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CategoryController;
 
-
 Route::get('/', function () {
-    return ('hello World!');
-});
+    return view('welcome');
+})->name('home');
 
 Route::resource('jobs', JobController::class);
 
